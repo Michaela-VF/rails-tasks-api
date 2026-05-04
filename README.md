@@ -1,78 +1,32 @@
-# Rails CRUD API Template
+# About
+     A simple Rails API for tasks. Each task should has a title and status.
+     Exposes endpoints to list tasks, show a single task, and create a task.
+     Allows filtering tasks by status. 
 
-## Overview
+# STEPS
+- rails db:migrate:status #CHECKS
+- rails dbconsole         #CHECKS
+- \dt                     #CHECKS
+- rails db:drop           #CLEARS DB
+- rails g model name feature:DataType feature:DataType
+- raild db:create
+- raild db:migrate
+- rails g controller name
+- add action routes
+- build action controller's logic
+- rails s #run localhost
+- open localhost in a browser and check for errors and if the routes work as they should
+- test by simulation as seen below in TESTS
 
-This is a minimal Ruby on Rails API template used to:
-* practice CRUD operations, 
-* RESTful API design, 
-* data transformations, and 
-* debugging workflows.
+# TESTS
+curl -X POST http://127.0.0.1:3000/tasks -H "Content-Type: application/json" -d '{"task": {"title": "To start with, clone GH Template for CRUD RESTful api", "status": "done"}}'
 
-It is intentionally lightweight to support fast iteration and practice.
+curl -X POST http://127.0.0.1:3000/tasks -H "Content-Type: application/json" -d '{"task": {"title": "Write a README with your plan steps, architecture etc", "status": "Done"}}'
 
----
+curl -X POST http://127.0.0.1:3000/tasks -H "Content-Type: application/json" -d '{"task": {"title": "Create MVC according to README"}}'
 
-## Tech Stack
+http://127.0.0.1:3000/tasks
 
-* Ruby
-* Ruby on Rails (API-only mode)
-* PostgreSQL (already 'rails db:create + rails db:migrate')
-* RSpec (testing)
-* RuboCop (linting)
-* SimpleCov (test coverage)
+http://127.0.0.1:3000/tasks/2
 
----
-
-## Purpose
-
-This template is used to practice core backend engineering patterns:
-
-* CRUD API development (create, read, update, delete)
-* RESTful routing and controller design
-* Data filtering and transformation logic
-* Writing and debugging tests
-* Simulating real-world backend tasks
-
----
-
-## Setup
-
-```bash id="q8m1xv"
-bundle install
-rails db:create
-rails db:migrate
-rails server
-```
-
----
-
-## Testing
-
-```bash id="t4k9lz"
-bundle exec rspec
-```
-
----
-
-## Linting
-
-```bash id="w2p7qa"
-bundle exec rubocop
-```
-
----
-
-## Example Endpoints (practice targets)
-
-* POST /users
-* GET /users/:id
-* PATCH /users/:id
-* DELETE /users/:id
-* GET /users?status=active (filtering)
-
----
-
-## Notes
-
-This project is intentionally minimal. 
-Features addition incrementally to focus on understanding core backend patterns rather than framework complexity.
+http://127.0.0.1:3000/tasks?status=done 
