@@ -1,13 +1,18 @@
 # About
-     A simple Rails API for tasks. Each task should has a title and status.
-     Exposes endpoints to list tasks, show a single task, and create a task.
-     Allows filtering tasks by status. 
+     A simple Rails API for 'tasks'. 
+     Each 'task' should has a 'title' and 'status'.
+     Exposes endpoints to 'list tasks', 'show' a single task, and 'create' a task.
+     Allows 'filtering' tasks by 'status'. 
 
 # STEPS
 - rails db:migrate:status #CHECKS
 - rails dbconsole         #CHECKS
 - \dt                     #CHECKS
-- rails db:drop           #CLEARS DB
+- SELECT * FROM 'tasks';  #CHECKS/VISUALISED TABLE
+- \x SELECT * FROM tasks; #CHECKS/VISUALISED TABLE better
+- \d tasks                # EXPAND TABLE STRUCTURE etc..
+- SELECT id, title, status, created_at FROM tasks; # INSPECT DATA IN THE TABLE etc..
+- rails db:drop           #CLEARS DB if invalid etc..
 - rails g model name feature:DataType feature:DataType
 - raild db:create
 - raild db:migrate
@@ -24,6 +29,8 @@ curl -X POST http://127.0.0.1:3000/tasks -H "Content-Type: application/json" -d 
 curl -X POST http://127.0.0.1:3000/tasks -H "Content-Type: application/json" -d '{"task": {"title": "Write a README with your plan steps, architecture etc", "status": "Done"}}'
 
 curl -X POST http://127.0.0.1:3000/tasks -H "Content-Type: application/json" -d '{"task": {"title": "Create MVC according to README"}}'
+
+curl -X POST http://127.0.0.1:3000/tasks -H "Content-Type: application/json" -d '{"task": {}}'
 
 http://127.0.0.1:3000/tasks
 
