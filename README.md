@@ -1,15 +1,15 @@
 # About
      A simple Rails API for 'tasks'. 
-     Each 'task' should has a 'title' and 'status'.
+     Each 'task' should have a 'title' and 'status'.
      Exposes endpoints to 'list tasks', 'show' a single task, and 'create' a task.
      Allows 'filtering' tasks by 'status'. 
 
 # STEPS
-- rails db:migrate:status #CHECKS
-- rails dbconsole         #CHECKS
-- \dt                     #CHECKS
-- SELECT * FROM 'tasks';  #CHECKS/VISUALISED TABLE
-- \x SELECT * FROM tasks; #CHECKS/VISUALISED TABLE better
+- rails db:migrate:status # to see db status
+- rails dbconsole         # to query the db directly (psql)
+- \dt                     # psql (same as above)
+- SELECT * FROM 'tasks';  # CHECKS/VISUALISED TABLE
+- \x SELECT * FROM tasks; # CHECKS/VISUALISED TABLE better
 - \d tasks                # EXPAND TABLE STRUCTURE etc..
 - SELECT id, title, status, created_at FROM tasks; # INSPECT DATA IN THE TABLE etc..
 - rails db:drop           #CLEARS DB if invalid etc..
